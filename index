@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Spark Media Technologies provides outsourcing, PR, media and marketing services to businesses and professionals." />
+  <title>Spark Media Technologies | Outsourcing, PR & Marketing</title>
+  <style>
+    :root {
+      --red: #e3262e;
+      --black: #111111;
+      --muted: #666;
+      --light: #f7f7f7;
+      --white: #fff;
+      --line: #e9e9e9;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1160px, 92%); margin: auto; }
+    nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .brand img { width: 170px; display: block; }
+    .navlinks { display: flex; gap: 30px; align-items: center; font-size: 14px; font-weight: 600; }
+    .navlinks a:hover { color: var(--red); }
+    .nav-cta {
+      background: var(--black);
+      color: white;
+      padding: 11px 19px;
+      border-radius: 5px;
+    }
+    .nav-cta:hover { background: var(--red); color: white !important; }
+
+    .hero {
+      min-height: 690px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(227,38,46,.09), transparent 28%),
+        linear-gradient(180deg, #fff 0%, #fafafa 100%);
+    }
+    .hero:after {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      border: 1px solid rgba(227,38,46,.12);
+      border-radius: 50%;
+      right: -180px;
+      bottom: -220px;
+    }
+    .hero-content { max-width: 850px; text-align: center; position: relative; z-index: 1; padding: 90px 0; }
+    .eyebrow {
+      display: inline-block;
+      color: var(--red);
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: .98;
+      letter-spacing: -4px;
+      margin-bottom: 28px;
+    }
+    h1 span { color: var(--red); }
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      font-size: 19px;
+      color: var(--muted);
+    }
+    .buttons { margin-top: 36px; display: flex; justify-content: center; gap: 13px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 23px;
+      border-radius: 5px;
+      font-weight: 700;
+      border: 1px solid var(--black);
+      transition: .2s ease;
+    }
+    .btn-primary { background: var(--red); color: white; border-color: var(--red); }
+    .btn-primary:hover { transform: translateY(-2px); background: #c91e26; }
+    .btn-secondary:hover { background: var(--black); color: white; }
+
+    section { padding: 105px 0; }
+    .section-label {
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .section-title { font-size: clamp(34px, 4vw, 52px); line-height: 1.05; letter-spacing: -2px; }
+    .section-intro { color: var(--muted); max-width: 650px; margin-top: 16px; font-size: 17px; }
+
+    .services { background: var(--light); }
+    .service-grid {
+      margin-top: 52px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 34px;
+      min-height: 285px;
+      position: relative;
+      transition: .2s ease;
+    }
+    .card:hover { transform: translateY(-5px); border-color: #d7d7d7; }
+    .number { color: var(--red); font-weight: 800; font-size: 13px; }
+    .card h3 { font-size: 25px; margin: 30px 0 12px; }
+    .card p { color: var(--muted); }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .feature-list { margin-top: 30px; display: grid; gap: 17px; }
+    .feature {
+      display: grid;
+      grid-template-columns: 35px 1fr;
+      gap: 13px;
+      align-items: start;
+    }
+    .check {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      background: var(--black);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .feature strong { display: block; margin-bottom: 3px; }
+    .feature p { color: var(--muted); font-size: 14px; }
+
+    .statement {
+      background: var(--black);
+      color: white;
+      text-align: center;
+    }
+    .statement .section-label { color: #ff5960; }
+    .statement h2 { font-size: clamp(36px, 5vw, 65px); line-height: 1.05; letter-spacing: -2px; max-width: 900px; margin: auto; }
+    .statement p { max-width: 680px; color: #bdbdbd; margin: 20px auto 0; }
+
+    .contact { background: #fafafa; }
+    .contact-box {
+      border: 1px solid var(--line);
+      background: white;
+      padding: 55px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 35px;
+      align-items: center;
+    }
+    .contact-box h2 { font-size: 40px; line-height: 1.1; letter-spacing: -1px; }
+    .contact-box p { color: var(--muted); margin-top: 10px; }
+    .contact-details { margin-top: 22px; font-weight: 700; }
+    .contact-details span { color: var(--red); }
+    footer {
+      background: #0b0b0b;
+      color: #aaa;
+      padding: 28px 0;
+      font-size: 13px;
+    }
+    footer .container { display: flex; justify-content: space-between; gap: 20px; }
+    footer strong { color: white; }
+
+    @media (max-width: 800px) {
+      .navlinks a:not(.nav-cta) { display: none; }
+      .hero { min-height: 600px; }
+      .service-grid, .split { grid-template-columns: 1fr; }
+      .split { gap: 45px; }
+      .contact-box { grid-template-columns: 1fr; padding: 35px 25px; }
+      footer .container { flex-direction: column; }
+      h1 { letter-spacing: -2.5px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+    <a class="brand" href="#top"><img src="spark-logo.jpg" alt="Spark Media Technologies"></a>
+    <div class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Spark Media Technologies</div>
+      <h1>Outsource smarter.<br><span>Market louder.</span></h1>
+      <p>
+        We help businesses and professionals move faster through dependable
+        outsourcing, strategic PR, media outreach and marketing services.
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://wa.me/919559760854" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="btn btn-secondary" href="tel:+919559760854">Call +91 95597 60854</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Business support built<br>around your growth.</h2>
+      <p class="section-intro">
+        From handling outsourced functions to building visibility, Spark Media Technologies
+        brings practical execution and communication under one roof.
+      </p>
+
+      <div class="service-grid">
+        <article class="card">
+          <div class="number">01 / OUTSOURCING</div>
+          <h3>Outsourcing Services</h3>
+          <p>Get reliable business functions handled by an external team so your internal resources can stay focused on priorities and growth.</p>
+        </article>
+        <article class="card">
+          <div class="number">02 / PR & MEDIA</div>
+          <h3>Public Relations</h3>
+          <p>Strengthen your public presence through media outreach, PR support and strategic communication designed to build visibility.</p>
+        </article>
+        <article class="card">
+          <div class="number">03 / MARKETING</div>
+          <h3>Marketing Services</h3>
+          <p>Turn your ideas, services and expertise into clear marketing communication that helps you reach the right audience.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container split">
+      <div>
+        <div class="section-label">Why Spark</div>
+        <h2 class="section-title">One partner.<br>Multiple capabilities.</h2>
+        <p class="section-intro">
+          Spark Media Technologies is built for people who need execution without
+          the complexity of managing multiple service providers.
+        </p>
+      </div>
+      <div class="feature-list">
+        <div class="feature">
+          <div class="check">✓</div>
+          <div><strong>Flexible support</strong><p>Services can be aligned with the operational and communication needs of your business.</p></div>
+        </div>
+        <div class="feature">
+          <div class="check">✓</div>
+          <div><strong>Execution-focused</strong><p>We focus on getting the work done, from outsourced functions to marketing initiatives.</p></div>
+        </div>
+        <div class="feature">
+          <div class="check">✓</div>
+          <div><strong>Visibility + operations</strong><p>Combine business support with PR and marketing instead of coordinating everything separately.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="container">
+      <div class="section-label">The Spark Difference</div>
+      <h2>Less complexity.<br>More momentum.</h2>
+      <p>
+        Whether you need outsourced support or want to put your brand in front of
+        the right audience, we're here to help you move forward.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <div class="section-label">Let's Connect</div>
+          <h2>Have a requirement?<br>Let's talk.</h2>
+          <p>Reach out to discuss outsourcing, PR or marketing support.</p>
+          <div class="contact-details">
+            <span>WhatsApp / Call:</span> +91 95597 60854
+          </div>
+        </div>
+        <div class="buttons" style="margin:0;justify-content:flex-start;">
+          <a class="btn btn-primary" href="https://wa.me/919559760854" target="_blank" rel="noopener">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div><strong>SPARK MEDIA TECHNOLOGIES</strong></div>
+    <div>sparkmediatech.com &nbsp; | &nbsp; +91 95597 60854</div>
+  </div>
+</footer>
+
+</body>
+</html>
